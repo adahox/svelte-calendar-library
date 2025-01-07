@@ -3,7 +3,17 @@
     import Week from "./Week.svelte";
     import Days from "./Days.svelte";
     import ContextMenu from "./ContextMenu.svelte";
-    export let options: { menuOptions: { [key: string]: Function } };
+    import { contextMenuStore } from "$lib/stores/contextMenu.store.js";
+
+    type MenuOptions = {
+        [key: string]: Function;
+    };
+
+    export let options: { menuOptions: MenuOptions } = {
+        menuOptions: {
+            close: () => $contextMenuStore.defaultClose,
+        },
+    };
 
     setContext("menuOptions", options.menuOptions);
 
