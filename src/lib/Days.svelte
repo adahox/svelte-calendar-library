@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Day from "$lib/Day.svelte";
+
     export let currentYear;
     export let currentMonth;
     let date = new Date();
@@ -49,35 +51,11 @@
 
 <ul class="days">
     {#each days as day: any}
-        <li
-            class="{day.isInactive ? 'inactive' : ''} {day.isToday
-                ? 'active'
-                : ''}"
-        >
-            {day.day}
-        </li>
+        <Day {day} />
     {/each}
 </ul>
 
 <style>
-    .days li.inactive {
-        color: #aaa;
-    }
-
-    .days li.active {
-        color: #fff;
-    }
-
-    .days li:hover::before {
-        background: #f2f2f2;
-        color: #000;
-    }
-
-    .days li.active::before {
-        background: #9b59b6;
-        color: #000;
-    }
-
     .days {
         margin-bottom: 30px;
         display: flex;
@@ -85,29 +63,5 @@
         list-style: none;
         flex-wrap: wrap;
         text-align: center;
-    }
-
-    .days li {
-        margin-top: 30px;
-        z-index: 1;
-        cursor: pointer;
-    }
-
-    .days li::before {
-        position: absolute;
-        content: "";
-        height: 40px;
-        width: 40px;
-        top: 50%;
-        left: 50%;
-        z-index: -1;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .days li {
-        position: relative;
-        font-weight: bold;
-        width: calc(100% / 7);
     }
 </style>

@@ -1,6 +1,11 @@
 <script lang="ts">
+    import { setContext } from "svelte";
     import Week from "./Week.svelte";
     import Days from "./Days.svelte";
+    import ContextMenu from "./ContextMenu.svelte";
+    export let options: { menuOptions: { [key: string]: Function } };
+
+    setContext("menuOptions", options.menuOptions);
 
     const weeksDaysList = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 
@@ -50,13 +55,13 @@
             <p class="current-date">{Months[currentMonth]} {currentYear}</p>
             <div class="icons">
                 <span
-                    role="button"
+                    role="none"
                     onclick={backwardCalendar}
                     id="prevIcon"
                     class="leftIcon">{@html "<"}</span
                 >
                 <span
-                    role="button"
+                    role="none"
                     onclick={fowardCalendar}
                     id="nextIcon"
                     class="rightIcon">{@html ">"}</span
@@ -64,6 +69,7 @@
             </div>
         </header>
         <div class="calendar">
+            <ContextMenu />
             <Week days={weeksDaysList} />
             <Days {currentYear} {currentMonth} />
         </div>
@@ -86,6 +92,7 @@
         justify-content: center;
         min-height: 100vh;
         background: #9b59b6;
+        padding: 0 4rem;
     }
 
     .wrapper {
