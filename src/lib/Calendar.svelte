@@ -107,7 +107,7 @@
     }
 
     header .icons span {
-        padding: 10px;
+        padding: 10px 20px;
         color: #878787;
         font-size: 1.5rem;
         margin: 0 1px;
