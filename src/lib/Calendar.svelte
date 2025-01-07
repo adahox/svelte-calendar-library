@@ -65,7 +65,7 @@
         </header>
         <div class="calendar">
             <Week days={weeksDaysList} />
-            <Days {currentYear} {currentMonth} {date} />
+            <Days {currentYear} {currentMonth} />
         </div>
     </div>
 </section>

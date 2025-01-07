@@ -1,7 +1,7 @@
 <script lang="ts">
     export let currentYear;
     export let currentMonth;
-    export let date;
+    let date = new Date();
 
     $: firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
     $: lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -24,6 +24,7 @@
                 dayData = {
                     day: lastDateOfLastMonth + currentDay,
                     isInactive: true,
+                    isToday: false,
                 };
             } else if (currentDay <= lastDateOfMonth) {
                 // Dias do mês atual
@@ -37,6 +38,7 @@
                 dayData = {
                     day: currentDay - lastDateOfMonth,
                     isInactive: true,
+                    isToday: false,
                 };
             }
 
