@@ -1,5 +1,4 @@
-// Reexport your entry components here
-import Calendar from './Calendar';
+import Calendar from "./Calendar.svelte";
 
 export {
     Calendar

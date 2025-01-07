@@ -34,7 +34,6 @@
     }
 
     function updateCalendar() {
-        console.log(currentYear, currentMonth);
         if (currentMonth < 0 || currentMonth > 11) {
             date = new Date(currentYear, currentMonth);
             currentYear = date.getFullYear();
